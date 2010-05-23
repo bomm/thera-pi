@@ -93,8 +93,8 @@ public class XRehaDocumentCloseListener implements ICloseListener {
 	public void notifyClosing(ICloseEvent closeEvent) {
 		/*try {
 			//officeAplication.deactivate(); // this is really necessary
-			System.out.println("Office application deactivated.");
-			System.out.println(closeEvent.getSourceObject());
+			//System.out.println("Office application deactivated.");
+			//System.out.println(closeEvent.getSourceObject());
 		}/* 	 
 		catch (OfficeApplicationException exception) {
 			System.err.println("Error closing office application!");
