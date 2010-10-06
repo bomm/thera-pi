@@ -36,8 +36,6 @@ package openOfficeorg;
  * Last changes made by $Author$, $Date$
  */
 import ag.ion.bion.officelayer.application.IOfficeApplication;
-import ag.ion.bion.officelayer.application.OfficeApplicationException;
-
 import ag.ion.bion.officelayer.event.ICloseEvent;
 import ag.ion.bion.officelayer.event.ICloseListener;
 import ag.ion.bion.officelayer.event.IEvent;
@@ -53,7 +51,7 @@ import ag.ion.bion.officelayer.event.IEvent;
  */
 public class XRehaDocumentCloseListener implements ICloseListener {
 
-	private IOfficeApplication officeAplication = null;
+	public IOfficeApplication officeAplication = null;
 	
   //----------------------------------------------------------------------------
 	/**
