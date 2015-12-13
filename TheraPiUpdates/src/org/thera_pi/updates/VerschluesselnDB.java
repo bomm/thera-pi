@@ -1,27 +1,29 @@
-package Tools;
+package org.thera_pi.updates;
+
+
 
 import javax.crypto.*;
 import javax.crypto.spec.*;
 
-public class Verschluesseln {
+public class VerschluesselnDB {
 
   final private transient static String password = "jeLaengerJeBesserPasswortRehaVerwaltung";
   final private transient byte [] salt = { (byte) 0xc9, (byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9};
   private final int iterations = 3;
 
-  protected Verschluesseln() {
+  protected VerschluesselnDB() {
 //    java.security.Security.addProvider(new com.sun.crypto.provider.SunJCE()); // implizit bereits erledigt!
   }
 
   /** instance */
-  private static Verschluesseln instance;
+  private static VerschluesselnDB instance;
 
   /** Singleton Factory
    * @return instance
    */
-  public static Verschluesseln getInstance () {
+  public static VerschluesselnDB getInstance () {
     if (instance == null) {
-      instance = new Verschluesseln ();
+      instance = new VerschluesselnDB ();
     }
     return instance;
 
@@ -38,7 +40,7 @@ public class Verschluesseln {
   private String charset = "UTF16";
 
   /**
-   * Initialisiert den Verschlüsselungsmechanismus
+   * Initialisiert den Verschl�sselungsmechanismus
    * @param pass char[]
    * @param salt byte[]
    * @param iterations int
@@ -61,7 +63,7 @@ public class Verschluesseln {
   }
 
   /**
-   * Verschlüsselt eine Zeichenkette
+   * Verschl�sselt eine Zeichenkette
    *
    * @param str Description of the Parameter
    * @return String the encrypted string.
@@ -80,8 +82,8 @@ public class Verschluesseln {
   }
 
   /**
-   * Entschlüsselt eine Zeichenkette, welche mit der Methode encrypt
-   * verschlüsselt wurde.
+   * Entschl�sselt eine Zeichenkette, welche mit der Methode encrypt
+   * verschl�sselt wurde.
    *
    * @param str Description of the Parameter
    * @return String the encrypted string.
@@ -102,9 +104,9 @@ public class Verschluesseln {
     Verschluesseln man = Verschluesseln.getInstance();
     man.init(man.password.toCharArray(), man.salt, man.iterations);
     final String encrypted = man.encrypt("Bastie");
-    System.out.println ("Verschlüsselt :"+encrypted);
+    //System.out.println ("Verschl�sselt :"+encrypted);
     final String decrypted = man.decrypt (encrypted);
-    System.out.println("Entschlüsselt :"+decrypted);
+    //System.out.println("Entschl�sselt :"+decrypted);
   }
   */
 

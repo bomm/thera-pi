@@ -5,12 +5,17 @@ import javax.crypto.spec.*;
 
 public class Verschluesseln {
 
-  final private transient static String password = "jeLaengerJeBesserPasswortRehaVerwaltung";
+  final private transient static String password = (TheraPiUpdates.isrta ? "jeLaengerJeBesserPasswortRehaVerwaltung" : "NurFuerRegistrierteUserjeLaengerJeBesserPasswortRehaVerwaltung") ;
   final private transient byte [] salt = { (byte) 0xc9, (byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9,(byte) 0xc9};
   private final int iterations = 3;
 
   protected Verschluesseln() {
 //    java.security.Security.addProvider(new com.sun.crypto.provider.SunJCE()); // implizit bereits erledigt!
+	  if(TheraPiUpdates.isrta){
+		  //System.out.println("Kurzer Algo");
+	  }else{
+		  //System.out.println("Langer  Algo");
+	  }
   }
 
   /** instance */
@@ -25,6 +30,10 @@ public class Verschluesseln {
     }
     return instance;
 
+  }
+  
+  public static void setInstanceNull(){
+	  instance = null;
   }
 
 
